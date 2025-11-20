@@ -3,6 +3,7 @@ package com.test.test.controller;
 import com.test.test.entity.*;
 import com.test.test.service.*;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/users")
+@CrossOrigin(origins = "*")
 public class controller {
 
     private final service Service;

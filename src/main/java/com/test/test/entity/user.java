@@ -11,22 +11,22 @@ public class user {
     private Long id;
 
     @Column(name = "username", nullable=false, unique = true)
-    private String Username;
+    private String username;
 
     @Column(name="email", nullable=false,unique = true)
-    private String Email;
+    private String email;
 
     @Column(name = "pass", nullable= false, unique = true)
-    private String Password;
+    private String password;
 
     //Default constructor
     public user(){};
 
     //constructor wit parameters
-    public user(String Username, String Email, String Password){
-        this.Username = Username;
-        this.Email=Email;
-        this.Password=Password;
+    public user(String username, String email, String password){
+        this.username = username;
+        this.email=email;
+        this.password=password;
     }
      
     public Long getId() {
@@ -38,25 +38,25 @@ public class user {
     }
     
     public String getUsername() {
-        return Username;
+        return username;
     }
     
-    public void setUsername(String Username) {
-        this.Username = Username;
+    public void setUsername(String username) {
+        this.username = username;
     }
     
     public String getEmail() {
-        return Email;
+        return email;
     }
     
-    public void setEmail(String Email) {
-        this.Email = Email;
+    public void setEmail(String email) {
+        this.email = email;
     }
     public String getPassword(){
-        return Password;
+        return password;
     }
-    public void setPassword(String Password){
-        this.Password=Password;
+    public void setPassword(String password){
+        this.password=password;
     }
     
 }
