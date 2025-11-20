@@ -9,13 +9,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/users")
+@RequestMapping("/api/users")
 public class controller {
 
-    public service Service;
-
+    private final service Service;
+    public controller(service myService) {
+    this.Service = myService;
+    }
     @PostMapping("/register")
     public String registerUser(@RequestBody user newUser){
+        // CONSTRUCTOR INJECTION (The missing link!)
         Service.registerUser(newUser.getUsername(), newUser.getEmail(), newUser.getPassword());
         return "Success";
     }

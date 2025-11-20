@@ -9,10 +9,13 @@ import org.springframework.stereotype.Service;
 @Service
 
 public class service {
-    public repository Repository;
-
+    private final  repository Repository;
+    // CONSTRUCTOR INJECTION
+    public service(repository myRepository) {
+        this.Repository = myRepository;
+    }
     public Optional<user> finduser(String Username) {
-        return Repository.findbyUsername(Username);
+        return Repository.findByUsername(Username);
     }
 
     public user registerUser(String Username, String Email, String Password) {
