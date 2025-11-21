@@ -33,4 +33,21 @@ public class service {
     // The repository looks at this object, generates the SQL, and runs the INSERT.
     return Repository.save(newUser); 
 }
+    public user loginrequest(String username, String email, String password){
+        // Is the email got from the controller from the url path present in the database?
+        Optional<user> founduser = Repository.findByUsername(username);
+        Optional<user> foundemail = Repository.findByEmail(email);
+
+        if(founduser.isPresent() || foundemail.isPresent()){
+            // if present now we get the data in the  user object with the email
+            user userfound = founduser.get();
+            user emailfound = foundemail.get();
+            // Now after getting the data we prepare it for verification of the email
+            if(userfound.getPassword().equals(password) || emailfound.getPassword().equals(password)){
+                return userfound;
+                // return emailfound;
+            }
+        }
+        return null;
+    }
 }

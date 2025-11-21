@@ -10,6 +10,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface repository extends JpaRepository<user, Long> {
     Optional<user> findByUsername(String username);
+
+    Optional<user> findByEmail(String email);
+    
     // Spring automatically provides methods like save(), findAll(), findById(), etc.
 }
 

@@ -24,5 +24,17 @@ public class controller {
         Service.registerUser(newUser.getUsername(), newUser.getEmail(), newUser.getPassword());
         return "Success";
     }
+
+    @PostMapping("/login")
+    public Object getUsercredentials(@RequestBody user loggingin){
+
+        user verification = Service.loginrequest(loggingin.getUsername(),loggingin.getEmail(),loggingin.getPassword());
+        if(verification != null){
+            return verification;
+        } else {
+            return "Invalid credentials";
+        }
+
+    }
     
 }
